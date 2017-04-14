@@ -96,7 +96,7 @@
                                     <constraint firstAttribute="width" secondItem="oaP-sW-3dh" secondAttribute="height" multiplier="375:479" id="and-Ld-oKj"/>
                                 </constraints>
                             </imageView>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gc5-R4-dqa">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gc5-R4-dqa">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <view alpha="0.80000001192092896" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oXa-j5-Qif">
@@ -146,6 +146,7 @@
                             </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tBC-Wg-SsK">
                                 <rect key="frame" x="331" y="20" width="24" height="24"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" image="ic_close"/>
                                 <connections>
                                     <action selector="dissmiss:" destination="JqL-eH-OWA" eventType="touchUpInside" id="3Qn-eZ-4Co"/>

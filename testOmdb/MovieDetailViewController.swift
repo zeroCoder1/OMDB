@@ -29,9 +29,6 @@ class MovieDetailViewController: UIViewController {
     
         self.posterImage.alpha = 0
         self.scrollView.alpha = 0
-        
-       
-   
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -105,7 +102,13 @@ class MovieDetailViewController: UIViewController {
 extension MovieDetailViewController : UIScrollViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        print(scrollView.contentOffset.y)
-
+        print(scrollView.contentOffset.y / self.view.frame.size.height)
+        
+        let totalScroll = scrollView.contentSize.height - scrollView.bounds.size.height
+        let offset = -scrollView.contentOffset.y
+        let percentage = offset / totalScroll
+        
+        self.movieDetails.alpha = 0.5 - percentage
+        
     }
 }
