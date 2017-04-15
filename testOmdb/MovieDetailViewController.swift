@@ -18,12 +18,12 @@ class MovieDetailViewController: UIViewController {
     @IBOutlet weak var movieDetails: UIView!
     @IBOutlet weak var plotLabel: UILabel!
     
+    @IBOutlet weak var ratingLabel: UILabel!
     @IBOutlet weak var imageTopConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var scrollView: UIScrollView!
     var movieItem:MovieItem?
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
     
@@ -33,16 +33,19 @@ class MovieDetailViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.posterImage.image = DataManager.shared.posterImage(movieItem!)
-
-        self.movieName.text = self.movieItem?.title
-        self.year.text = self.movieItem?.year
-        self.scrollView.delegate = self
+        
+        guard let m = self.movieItem else { return }
+        
+        self.posterImage.image = DataManager.shared.posterImage(m)
         
         self.posterImage.image?.getColors { colors in
             self.view.backgroundColor = colors.backgroundColor
             self.dismissButton.tintColor = colors.primaryColor
         }
+        
+        self.movieName.text = m.title
+        self.year.text = m.year
+        self.scrollView.delegate = self
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -53,15 +56,14 @@ class MovieDetailViewController: UIViewController {
         UIView.animate(withDuration: 0.5) {
             self.view.layoutIfNeeded()
             self.posterImage.fadeIn()
-           
         }
         
-
         DataManager.shared.fetchMovieWithId(movieItem?.title ?? "") { (movie, error) in
             if let movie = movie {
                 print(movie)
                 self.plotLabel.text = movie.plot
-                
+                self.ratingLabel.text = movie.imdbrating
+
                 self.delay(1.0, closure: {
                     self.scrollView.alpha = 1
                     self.scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
@@ -72,12 +74,6 @@ class MovieDetailViewController: UIViewController {
                 print(error?.errorMessage ?? "" )
             }
         }
-        
-        
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
     }
     
     @IBAction func dissmiss(_ sender: Any) {
@@ -102,13 +98,10 @@ class MovieDetailViewController: UIViewController {
 extension MovieDetailViewController : UIScrollViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        print(scrollView.contentOffset.y / self.view.frame.size.height)
-        
         let totalScroll = scrollView.contentSize.height - scrollView.bounds.size.height
         let offset = -scrollView.contentOffset.y
         let percentage = offset / totalScroll
         
         self.movieDetails.alpha = 0.5 - percentage
-        
     }
 }

@@ -100,23 +100,33 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <view alpha="0.80000001192092896" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oXa-j5-Qif">
-                                        <rect key="frame" x="10" y="514" width="355" height="113"/>
+                                        <rect key="frame" x="10" y="514" width="355" height="115"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie name" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R7v-uh-c63">
-                                                <rect key="frame" x="10" y="10" width="335" height="30"/>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="25"/>
+                                                <rect key="frame" x="10" y="10" width="335" height="32"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="27"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Year" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zsQ-Oy-Q1Z">
-                                                <rect key="frame" x="10" y="50" width="335" height="22"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Year" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zsQ-Oy-Q1Z">
+                                                <rect key="frame" x="10" y="52" width="34" height="22"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yMP-no-mqU">
-                                                <rect key="frame" x="10" y="82" width="335" height="21"/>
+                                                <rect key="frame" x="10" y="84" width="335" height="21"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sp7-rW-mhb">
+                                                <rect key="frame" x="309" y="55" width="30" height="16"/>
+                                                <color key="backgroundColor" red="0.94594240188598633" green="0.77183675765991211" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="30" id="blY-Jg-a6X"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="13"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -124,14 +134,16 @@
                                         <color key="backgroundColor" red="0.98222959840000001" green="0.98222959840000001" blue="0.98222959840000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="yMP-no-mqU" secondAttribute="bottom" constant="10" id="55h-Lg-oeB"/>
+                                            <constraint firstItem="sp7-rW-mhb" firstAttribute="top" secondItem="R7v-uh-c63" secondAttribute="bottom" constant="13" id="5Bm-rw-Y4h"/>
                                             <constraint firstItem="R7v-uh-c63" firstAttribute="leading" secondItem="oXa-j5-Qif" secondAttribute="leading" constant="10" id="95l-Lw-nIG"/>
                                             <constraint firstItem="R7v-uh-c63" firstAttribute="top" secondItem="oXa-j5-Qif" secondAttribute="top" constant="10" id="DX1-29-cqw"/>
                                             <constraint firstAttribute="trailing" secondItem="R7v-uh-c63" secondAttribute="trailing" constant="10" id="JOl-Qh-ERb"/>
+                                            <constraint firstItem="yMP-no-mqU" firstAttribute="top" secondItem="sp7-rW-mhb" secondAttribute="bottom" constant="13" id="MGM-nK-ArT"/>
                                             <constraint firstAttribute="trailing" secondItem="yMP-no-mqU" secondAttribute="trailing" constant="10" id="RID-r3-WdB"/>
                                             <constraint firstItem="yMP-no-mqU" firstAttribute="top" secondItem="zsQ-Oy-Q1Z" secondAttribute="bottom" constant="10" id="UF6-I2-ROc"/>
+                                            <constraint firstAttribute="trailing" secondItem="sp7-rW-mhb" secondAttribute="trailing" constant="16" id="UFJ-WL-jz4"/>
                                             <constraint firstItem="zsQ-Oy-Q1Z" firstAttribute="top" secondItem="R7v-uh-c63" secondAttribute="bottom" constant="10" id="Uki-si-kOY"/>
                                             <constraint firstItem="yMP-no-mqU" firstAttribute="leading" secondItem="oXa-j5-Qif" secondAttribute="leading" constant="10" id="osb-Vh-2Lt"/>
-                                            <constraint firstAttribute="trailing" secondItem="zsQ-Oy-Q1Z" secondAttribute="trailing" constant="10" id="uH2-Y8-6Y5"/>
                                             <constraint firstItem="zsQ-Oy-Q1Z" firstAttribute="leading" secondItem="oXa-j5-Qif" secondAttribute="leading" constant="10" id="vtq-3g-XW8"/>
                                         </constraints>
                                     </view>
@@ -174,6 +186,7 @@
                         <outlet property="movieName" destination="R7v-uh-c63" id="j7T-oX-jDW"/>
                         <outlet property="plotLabel" destination="yMP-no-mqU" id="oqU-fg-Iyz"/>
                         <outlet property="posterImage" destination="oaP-sW-3dh" id="Afm-6K-BxP"/>
+                        <outlet property="ratingLabel" destination="sp7-rW-mhb" id="aSu-5B-F19"/>
                         <outlet property="scrollView" destination="Gc5-R4-dqa" id="kWg-zd-vrP"/>
                         <outlet property="year" destination="zsQ-Oy-Q1Z" id="ElC-Sg-Ep4"/>
                     </connections>
