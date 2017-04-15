@@ -34,7 +34,7 @@ class SearchMovie {
     
     func fecthNextPage(onCompletion:@escaping (Error?) -> Void) {
         
-        if (!self.searching && (self.totalResults == 0 || (self.currentPage * 10) < self.totalResults)) {
+        if (!self.searching && (self.results.count == 0 || (self.currentPage * 10) <= self.results.count)) {
             self.searching = true
             DataManager.shared.searchMovieWithTerm(self.keyword, page: self.currentPage + 1, completionHandler: { (searchResult, movieItem, error) in
                 self.searching = false
@@ -43,9 +43,7 @@ class SearchMovie {
                     if let movieItem = movieItem, let searchResult = searchResult {
 
                         if searchResult.response {
-
                             self.results += movieItem
-                            self.totalResults = searchResult.totalResult
                             self.currentPage += 1
                         }
                     }
