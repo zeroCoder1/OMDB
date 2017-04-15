@@ -130,12 +130,24 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EtZ-LQ-dnC">
+                                                <rect key="frame" x="262" y="55" width="30" height="16"/>
+                                                <color key="backgroundColor" red="0.94594240190000001" green="0.77183675770000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="30" id="lED-eG-hUP"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="13"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" red="0.98222959840000001" green="0.98222959840000001" blue="0.98222959840000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="yMP-no-mqU" secondAttribute="bottom" constant="10" id="55h-Lg-oeB"/>
                                             <constraint firstItem="sp7-rW-mhb" firstAttribute="top" secondItem="R7v-uh-c63" secondAttribute="bottom" constant="13" id="5Bm-rw-Y4h"/>
+                                            <constraint firstItem="sp7-rW-mhb" firstAttribute="leading" secondItem="EtZ-LQ-dnC" secondAttribute="trailing" constant="17" id="8pb-H0-HSr"/>
                                             <constraint firstItem="R7v-uh-c63" firstAttribute="leading" secondItem="oXa-j5-Qif" secondAttribute="leading" constant="10" id="95l-Lw-nIG"/>
+                                            <constraint firstItem="EtZ-LQ-dnC" firstAttribute="top" secondItem="R7v-uh-c63" secondAttribute="bottom" constant="13" id="CZk-fz-lPg"/>
                                             <constraint firstItem="R7v-uh-c63" firstAttribute="top" secondItem="oXa-j5-Qif" secondAttribute="top" constant="10" id="DX1-29-cqw"/>
                                             <constraint firstAttribute="trailing" secondItem="R7v-uh-c63" secondAttribute="trailing" constant="10" id="JOl-Qh-ERb"/>
                                             <constraint firstItem="yMP-no-mqU" firstAttribute="top" secondItem="sp7-rW-mhb" secondAttribute="bottom" constant="13" id="MGM-nK-ArT"/>
@@ -186,12 +198,13 @@
                     <connections>
                         <outlet property="dismissButton" destination="tBC-Wg-SsK" id="cAZ-d0-9uJ"/>
                         <outlet property="imageTopConstraint" destination="r89-aK-l5Q" id="iXi-wO-Jvv"/>
+                        <outlet property="imdbRatingLabel" destination="sp7-rW-mhb" id="Pcm-cf-gNt"/>
                         <outlet property="movieDetails" destination="oXa-j5-Qif" id="s3Q-Bz-ruA"/>
                         <outlet property="movieName" destination="R7v-uh-c63" id="j7T-oX-jDW"/>
                         <outlet property="plotLabel" destination="yMP-no-mqU" id="oqU-fg-Iyz"/>
                         <outlet property="posterImage" destination="oaP-sW-3dh" id="Afm-6K-BxP"/>
-                        <outlet property="ratingLabel" destination="sp7-rW-mhb" id="aSu-5B-F19"/>
                         <outlet property="scrollView" destination="Gc5-R4-dqa" id="kWg-zd-vrP"/>
+                        <outlet property="tomatoRatingLabel" destination="EtZ-LQ-dnC" id="Dc1-ho-2Mc"/>
                         <outlet property="year" destination="zsQ-Oy-Q1Z" id="ElC-Sg-Ep4"/>
                     </connections>
                 </viewController>

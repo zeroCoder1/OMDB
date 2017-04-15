@@ -18,7 +18,9 @@ class MovieDetailViewController: UIViewController {
     @IBOutlet weak var movieDetails: UIView!
     @IBOutlet weak var plotLabel: UILabel!
     
-    @IBOutlet weak var ratingLabel: UILabel!
+    @IBOutlet weak var imdbRatingLabel: UILabel!
+    @IBOutlet weak var tomatoRatingLabel: UILabel!
+
     @IBOutlet weak var imageTopConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var scrollView: UIScrollView!
@@ -46,6 +48,8 @@ class MovieDetailViewController: UIViewController {
         self.movieName.text = m.title
         self.year.text = m.year
         self.scrollView.delegate = self
+        
+        self.getMovie(movieItem: m)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -58,22 +62,7 @@ class MovieDetailViewController: UIViewController {
             self.posterImage.fadeIn()
         }
         
-        DataManager.shared.fetchMovieWithId(movieItem?.title ?? "") { (movie, error) in
-            if let movie = movie {
-                print(movie)
-                self.plotLabel.text = movie.plot
-                self.ratingLabel.text = movie.imdbrating
-
-                self.delay(1.0, closure: {
-                    self.scrollView.alpha = 1
-                    self.scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
-                    self.movieDetails.addShadow(CGSize(width: 0.0, height: -2.0), cornerRadius: 5.0, shadowColor: UIColor.black.cgColor)
-                })
-                
-            } else {
-                print(error?.errorMessage ?? "" )
-            }
-        }
+        
     }
     
     @IBAction func dissmiss(_ sender: Any) {
@@ -85,6 +74,28 @@ class MovieDetailViewController: UIViewController {
         }) { (finished) in
             self.dismiss(animated: true, completion: nil)
         }
+    }
+    
+    
+    func getMovie(movieItem:MovieItem)  {
+        DataManager.shared.fetchMovieWithId(movieItem.title) { (movie, error) in
+            if let movie = movie {
+                print(movie)
+                self.plotLabel.text = movie.plot
+                self.imdbRatingLabel.text = movie.imdbrating
+                self.tomatoRatingLabel.text = movie.metascore
+                
+                self.delay(1.0, closure: {
+                    self.scrollView.alpha = 1
+                    self.scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
+                    self.movieDetails.addShadow(CGSize(width: 0.0, height: -2.0), cornerRadius: 5.0, shadowColor: UIColor.black.cgColor)
+                })
+                
+            } else {
+                print(error?.errorMessage ?? "" )
+            }
+        }
+
     }
     
     func delay(_ delay: Double, closure: @escaping () -> ()) {
